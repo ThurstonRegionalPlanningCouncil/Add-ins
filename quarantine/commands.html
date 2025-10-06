@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ThurstonRegionalPlanningCouncil/Add-ins@main/quarantine/commands.js"></script>
-  </head>
-  <body></body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <!-- Allow Office.js + jsDelivr in Outlook's webview -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https://appsforoffice.microsoft.com https://cdn.jsdelivr.net;
+                 script-src 'self' https://appsforoffice.microsoft.com https://cdn.jsdelivr.net 'unsafe-inline';
+                 style-src 'self' 'unsafe-inline';
+                 img-src * data:;
+                 connect-src *;">
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ThurstonRegionalPlanningCouncil/Add-ins@main/quarantine/commands.js?v=2"></script>
+</head>
+<body></body>
 </html>
+
