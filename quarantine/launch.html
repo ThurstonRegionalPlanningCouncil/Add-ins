@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https://appsforoffice.microsoft.com https://cdn.jsdelivr.net;
+                 script-src 'self' https://appsforoffice.microsoft.com https://cdn.jsdelivr.net 'unsafe-inline';
+                 style-src 'self' 'unsafe-inline';
+                 img-src * data:;
+                 connect-src *;">
+  <title>Open Quarantine</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; margin: 0; padding: 16px; }
+    button { padding: 10px 16px; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h3>Open Microsoft 365 Quarantine</h3>
+  <p>Click the button below to open the quarantine portal in your browser.</p>
+  <button id="go">Open Quarantine</button>
+
+  <script>
+    const URL = "https://security.microsoft.com/quarantine"; // use .us for GCC High if needed
+    Office.onReady(() => {
+      document.getElementById('go').addEventListener('click', () => {
+        window.open(URL, '_blank');                 // user-gesture → system browser
+        try { Office.context.ui.messageParent('ok'); } catch {}
+        try { Office.context.ui.closeContainer(); } catch {}
+      });
+    });
+  </script>
+</body>
+</html>
